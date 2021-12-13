@@ -11,7 +11,7 @@ import { initApp } from './actions';
 
 // CONTAINER COM BASE
 import Pedidos from './containers/Pedidos';
-//import Pedido from './containers/Pedido';
+import Pedido  from './containers/Pedido';
 
 //import Clientes from './containers/Clientes';
 //import Cliente from './containers/Cliente';
