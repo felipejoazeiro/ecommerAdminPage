@@ -16,9 +16,9 @@ import Pedido  from './containers/Pedido';
 import Clientes from './containers/Clientes';
 //import Cliente from './containers/Cliente';
 
-//import Categorias from './containers/Categorias';
-//import NovaCategoria from './containers/Categorias/novaCategoria';
-//import Categoria from './containers/Categoria';
+import Categorias from './containers/Categorias';
+import NovaCategoria from './containers/Categorias/novaCategoria';
+import Categoria from './containers/Categoria';
 
 //import Produtos from './containers/Produtos';
 //import NovoProduto from './containers/Produtos/novoProduto';
@@ -48,16 +48,19 @@ class App extends Component {
 
             <div className="App">
               
-                <Route path={"/"} exact component={base(Pedidos)} />
-                
-                <Route path={"/login"} exact component={noAuth(Login)} />
-                <Route path={"/recuperar-senha"} exact component={noAuth(RecuperarSenha)} />
-                <Route path={"/resetar-senha/:token"} exact component={noAuth(ResetarSenha)} />
-
-                <Route path={"/pedido/:id"} exact component={base(Pedido)} />
-
-                <Route path={"/clientes"} exact component={base(Clientes)} />
+              <Route path={"/"} exact component={base(Pedidos)} />
               
+              <Route path={"/login"} exact component={noAuth(Login)} />
+              <Route path={"/recuperar-senha"} exact component={noAuth(RecuperarSenha)} />
+              <Route path={"/resetar-senha/:token"} exact component={noAuth(ResetarSenha)} />
+
+              <Route path={"/pedido/:id"} exact component={base(Pedido)} />
+
+              <Route path={"/clientes"} exact component={base(Clientes)} />
+            
+              <Route path={"/categorias"} exact component={base(Categorias)} />
+              <Route path={"/categorias/nova"} exact component={base(NovaCategoria)} />
+              <Route path={"/categoria/:id"} exact component={base(Categoria)} />
             </div>
           </Router>
 
@@ -70,9 +73,6 @@ class App extends Component {
 
             <Route path={"/cliente/:id"} exact component={base(Cliente)} />
 
-            <Route path={"/categorias"} exact component={base(Categorias)} />
-            <Route path={"/categorias/nova"} exact component={base(NovaCategoria)} />
-            <Route path={"/categoria/:id"} exact component={base(Categoria)} />
 
             <Route path={"/produtos"} exact component={base(Produtos)} />
             <Route path={"/produtos/novo"} exact component={base(NovoProduto)} />
