@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route  } from 'react-router-dom';
 
 import base from './containers/HOC/Base';
 import noAuth from './containers/HOC/NoAuth';
@@ -13,7 +13,7 @@ import { initApp } from './actions';
 import Pedidos from './containers/Pedidos';
 import Pedido  from './containers/Pedido';
 
-//import Clientes from './containers/Clientes';
+import Clientes from './containers/Clientes';
 //import Cliente from './containers/Cliente';
 
 //import Categorias from './containers/Categorias';
@@ -44,24 +44,30 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div className="App">
-            <Route path={"/"} exact component={base(Pedidos)} />
-            
-            <Route path={"/login"} exact component={noAuth(Login)} />
-            <Route path={"/recuperar-senha"} exact component={noAuth(RecuperarSenha)} />
-            <Route path={"/resetar-senha/:token"} exact component={noAuth(ResetarSenha)} />
-          </div>
-        </Router>
+          <Router>
+
+            <div className="App">
+              
+                <Route path={"/"} exact component={base(Pedidos)} />
+                
+                <Route path={"/login"} exact component={noAuth(Login)} />
+                <Route path={"/recuperar-senha"} exact component={noAuth(RecuperarSenha)} />
+                <Route path={"/resetar-senha/:token"} exact component={noAuth(ResetarSenha)} />
+
+                <Route path={"/pedido/:id"} exact component={base(Pedido)} />
+
+                <Route path={"/clientes"} exact component={base(Clientes)} />
+              
+            </div>
+          </Router>
+
       </Provider>
     );
   }
 }
 
 /*
-            <Route path={"/pedido/:id"} exact component={base(Pedido)} />
 
-            <Route path={"/clientes"} exact component={base(Clientes)} />
             <Route path={"/cliente/:id"} exact component={base(Cliente)} />
 
             <Route path={"/categorias"} exact component={base(Categorias)} />
