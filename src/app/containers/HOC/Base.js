@@ -6,15 +6,15 @@ import * as actions from '../../actions';
 const base = Component => {
     class ComponentBase extends React.Component {
 
-        componentWillMount(){
+        componentDidMount(){
             const { getUser, authorized, history, usuario } = this.props;
             getUser();
             if(!authorized || !usuario || !usuario.role.includes("admin")) history.replace("/login");
         }
 
-        componentWillUpdate(nextProps){
+        componentDidUpdate(prevProps){
             const { history } = this.props;
-            if( !nextProps.authorized || !nextProps.usuario || !nextProps.usuario.role.includes("admin")){
+            if( !prevProps.authorized || !prevProps.usuario || !prevProps.usuario.role.includes("admin")){
                 history.replace("/login");
             }  
         }
