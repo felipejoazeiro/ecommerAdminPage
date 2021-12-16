@@ -28,11 +28,11 @@ class Clientes extends Component {
         else this.props.getClientes(atual, limit, loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getClientes();
     }
-    componentWillUpdate(nextProps){
-        if(!this.props.usuario && nextProps.usuario) this.getClientes();
+    componentDidUpdate(prevProps){
+        if(!prevProps.usuario && this.props.usuario) this.getClientes();
     }
 
     handleSubmitPesquisa(){

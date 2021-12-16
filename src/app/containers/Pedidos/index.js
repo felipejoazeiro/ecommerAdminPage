@@ -30,11 +30,11 @@ class Pedidos extends Component {
         else this.props.getPedidos(atual, limit, loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getPedidos();
     }
-    componentWillUpdate(nextProps){
-        if(!this.props.usuario && nextProps.usuario) this.getPedidos();
+    componentDidUpdate(prevProps){
+        if(!prevProps.usuario && this.props.usuario) this.getPedidos();
     }
 
     handleSubmitPesquisa(){

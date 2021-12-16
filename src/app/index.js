@@ -14,7 +14,7 @@ import Pedidos from './containers/Pedidos';
 import Pedido  from './containers/Pedido';
 
 import Clientes from './containers/Clientes';
-//import Cliente from './containers/Cliente';
+import Cliente from './containers/Cliente';
 
 import Categorias from './containers/Categorias';
 import NovaCategoria from './containers/Categorias/novaCategoria';
@@ -24,11 +24,11 @@ import Produtos from './containers/Produtos';
 import NovoProduto from './containers/Produtos/novoProduto';
 import Produto from './containers/Produto';
 
-//import Avaliacoes from './containers/Avaliacoes';
-//import Avaliacao from './containers/Avaliacao';
+import Avaliacoes from './containers/Avaliacoes';
+import Avaliacao from './containers/Avaliacao';
 
-//import Configuracoes from './containers/Configuracoes';
-//import Perfil from './containers/Perfil';
+import Configuracoes from './containers/Configuracoes';
+import Perfil from './containers/Perfil';
 
 // CONTAINER SEM BASE
 import Login from './containers/Login';
@@ -37,7 +37,7 @@ import ResetarSenha from './containers/RecuperarSenha/ResetarSenha';
 
 class App extends Component {
 
-  componentWillMount(){
+  componentDidMount(){
     initApp();
   }
 
@@ -57,6 +57,7 @@ class App extends Component {
               <Route path={"/pedido/:id"} exact component={base(Pedido)} />
 
               <Route path={"/clientes"} exact component={base(Clientes)} />
+              <Route path={"/cliente/:id"} exact component={base(Cliente)} />
             
               <Route path={"/categorias"} exact component={base(Categorias)} />
               <Route path={"/categorias/nova"} exact component={base(NovaCategoria)} />
@@ -66,6 +67,12 @@ class App extends Component {
               <Route path={"/produtos/novo"} exact component={base(NovoProduto)} />
               <Route path={"/produto/:id"} exact component={base(Produto)} />
             
+
+              <Route path={"/avaliacoes/:id"} exact component={base(Avaliacoes)} />
+              <Route path={"/avaliacao/:id"} exact component={base(Avaliacao)} />
+
+              <Route path={"/configuracoes"} exact component={base(Configuracoes)} />
+              <Route path={"/perfil"} exact component={base(Perfil)} />
             </div>
           </Router>
 
@@ -76,15 +83,6 @@ class App extends Component {
 
 /*
 
-            <Route path={"/cliente/:id"} exact component={base(Cliente)} />
-
-
-
-            <Route path={"/avaliacoes/:id"} exact component={base(Avaliacoes)} />
-            <Route path={"/avaliacao/:id"} exact component={base(Avaliacao)} />
-
-            <Route path={"/configuracoes"} exact component={base(Configuracoes)} />
-            <Route path={"/perfil"} exact component={base(Perfil)} />
 
 */
 export default App;

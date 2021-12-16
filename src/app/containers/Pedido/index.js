@@ -10,7 +10,7 @@ import * as actions from '../../actions/pedidos';
 
 class Pedido extends Component {
 
-    componentWillMount(){
+    componentDidMount(){
         const { usuario } = this.props;
         const { id } = this.props.match.params;
         if(!usuario) return null;

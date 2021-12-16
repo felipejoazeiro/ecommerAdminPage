@@ -16,11 +16,11 @@ class Categorias extends Component {
         this.props.getCategorias(usuario.loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getCategorias();
     }
-    componentWillUpdate(nextProps){
-        if( !this.props.usuario && nextProps.usuario ) this.getCategorias();
+    componentDidUpdate(prevProps){
+        if( !prevProps.usuario && this.props.usuario ) this.getCategorias();
     }
 
     renderBotaoNovo(){

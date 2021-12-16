@@ -21,7 +21,11 @@ export const handleLogin = ({ email, password, opcaoLembrar }, callback) => {
             saveToken(response.data.usuario, opcaoLembrar);
             dispatch({ type: LOGIN_USER, payload: response.data });
         })
-        .catch((e) => callback(errorHandling(e)));
+        .catch((e) => {
+            callback(errorHandling(e))
+            console.log(e, e.response, e.response.data)
+            }
+        );
     }
 }
 
