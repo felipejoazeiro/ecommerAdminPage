@@ -22,15 +22,15 @@ class ListaDeProdutos extends Component {
         this.props.getCategoriaProdutos(categoria._id, atual, limit, usuario.loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getCategoriaProdutos(this.props);
     }
 
-    componentWillUpdate(nextProps){
+    componentDidUpdate(prevProps){
         if(
-            ( !this.props.usuario && nextProps.usuario ) ||
-            ( !this.props.categoria && nextProps.categoria )
-        ) this.getCategoriaProdutos(nextProps);
+            ( !prevProps.usuario && this.props.usuario ) ||
+            ( !prevProps.categoria && this.props.categoria )
+        ) this.getCategoriaProdutos(this.props);
     }
 
     changeNumeroAtual = (atual) => this.setState({ atual }, () => this.getCategoriaProdutos(this.props));
