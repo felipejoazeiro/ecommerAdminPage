@@ -39,12 +39,12 @@ class DetalhesProduto extends Component {
         }
     }
 
-    componentWillUpdate(nextProps){
+    componentDidUpdate(prevProps){
         if(
-            ( !this.props.produto && nextProps.produto ) ||
-            ( this.props.produto && nextProps.produto && 
-              this.props.produto.updatedAt !== nextProps.produto.updatedAt )
-        ) this.setState(this.generateStateProduto(nextProps));
+            ( !prevProps.produto && this.props.produto ) ||
+            ( prevProps.produto && this.props.produto && 
+              prevProps.produto.updatedAt !== this.props.produto.updatedAt )
+        ) this.setState(this.generateStateProduto(this.props));
     }
 
     validate(){

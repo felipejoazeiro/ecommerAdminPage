@@ -29,11 +29,11 @@ class NovoProduto extends Component {
         if(usuario) getCategorias(usuario.loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getCategorias(this.props);
     }
-    componentWillUpdate(nextProps){
-        if( !this.props.usuario && nextProps.usuario ) this.getCategorias(nextProps);
+    componentDidUpdate(prevProps){
+        if( !prevProps.usuario && this.props.usuario ) this.getCategorias(this.props);
     }
 
     validate(){
