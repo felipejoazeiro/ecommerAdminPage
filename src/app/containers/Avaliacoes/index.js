@@ -15,10 +15,10 @@ class Avaliacoes extends Component {
         this.props.getAvaliacoes(produto._id, usuario.loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getAvaliacoes(this.props);
     }
-    componentWillUpdate(nextProps){
+    componentDidUpdate(nextProps){
         if( 
             ( !this.props.usuario || !this.props.produto ) &&
             nextProps.usuario && nextProps.produto

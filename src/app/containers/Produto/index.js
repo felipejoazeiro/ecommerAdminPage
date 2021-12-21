@@ -16,6 +16,10 @@ class Produto extends Component {
         getProduto(id, usuario.loja);
         getCategorias(usuario.loja);
     }
+
+    componentWillUnmount(){
+        this.props.limparProduto()
+    }
     
     render(){
         return (
