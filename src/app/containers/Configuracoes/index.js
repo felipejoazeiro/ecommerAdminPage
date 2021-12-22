@@ -38,12 +38,12 @@ class Configuracoes extends Component {
         this.props.getConfiguracao(usuario.loja);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getConfiguracao(this.props);
     }
-    componentWillUpdate(nextProps){
-        if( !this.props.usuario && nextProps.usuario ) this.getConfiguracao(nextProps);
-        if( !this.props.loja && nextProps.loja ) this.setState(this.generateStateConfiguracao(nextProps));
+    componentDidUpdate(prevProps){
+        if( !prevProps.usuario && this.props.usuario ) this.getConfiguracao(this.props);
+        if( !prevProps.loja && this.props.loja ) this.setState(this.generateStateConfiguracao(this.props));
     }
 
     updateLoja(){

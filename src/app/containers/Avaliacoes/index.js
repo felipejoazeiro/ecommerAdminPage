@@ -18,11 +18,11 @@ class Avaliacoes extends Component {
     componentDidMount(){
         this.getAvaliacoes(this.props);
     }
-    componentDidUpdate(nextProps){
+    componentDidUpdate(prevProps){
         if( 
-            ( !this.props.usuario || !this.props.produto ) &&
-            nextProps.usuario && nextProps.produto
-        ) this.getAvaliacoes(nextProps);
+            ( !prevProps.usuario || !prevProps.produto ) &&
+            this.props.usuario && this.props.produto
+        ) this.getAvaliacoes(this.props);
     }
 
     render(){

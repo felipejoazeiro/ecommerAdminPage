@@ -26,15 +26,15 @@ class Perfil extends Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.props.getUser();
     }
-    componentDidUpdate(nextProps){
-        if( nextProps.usuario && this.props.usuario &&
-            nextProps.usuario.updatedAt !== this.props.usuario.updatedAt ){
+    componentDidUpdate(prevProps){
+        if( this.props.usuario && prevProps.usuario &&
+            this.props.usuario.updatedAt !== prevProps.usuario.updatedAt ){
             this.setState({
-                nome: nextProps.usuario ? nextProps.usuario.nome: "",
-                email: nextProps.usuario ? nextProps.usuario.email: "",
+                nome: this.props.usuario ? this.props.usuario.nome: "",
+                email: this.props.usuario ? this.props.usuario.email: "",
             });
         }
     }
